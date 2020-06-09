@@ -1,0 +1,62 @@
+/*SELECT *
+FROM countries;*/
+
+--3. 56
+SELECT COUNT(*)
+FROM countries
+WHERE continent IS 'Africa';
+
+
+/* Just for peeping
+SELECT * 
+FROM population_years
+LIMIT 100;*/
+
+--4. Show total population of all continents in 2005
+SELECT continent, SUM(population), year
+FROM countries
+JOIN population_years
+ON countries.id = population_years.country_id
+WHERE year = 2005
+GROUP BY 1
+ORDER BY 2 DESC;
+
+--5. Show average of all continents in 2003
+SELECT year, AVG(population), continent
+FROM countries
+JOIN population_years
+ON countries.id = population_years.country_id
+WHERE year = 2003
+GROUP BY 3
+ORDER BY 2 DESC;
+
+--6 Niue
+SELECT name, continent, MIN(Population)
+FROM countries
+JOIN population_years
+ON countries.id = population_years.country_id
+WHERE year = 2007;
+
+
+SELECT DISTINCT (year)
+FROM population_years;
+--7
+SELECT name, AVG(population)
+FROM population_years
+JOIN countries 
+ON countries.id = population_years.country_id
+WHERE name IS 'Poland';
+
+SELECT COUNT(*)
+FROM countries
+WHERE name LIKE '%The%';
+
+
+SELECT continent, SUM(population), year
+FROM countries
+JOIN population_years
+ON countries.id = population_years.country_id
+WHERE year = 2010
+GROUP BY 1
+ORDER BY 2 DESC;
+
