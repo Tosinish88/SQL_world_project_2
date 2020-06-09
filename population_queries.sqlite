@@ -49,7 +49,7 @@ WHERE name IS 'Poland';
 
 SELECT COUNT(*)
 FROM countries
-WHERE name LIKE '%The%';
+WHERE name LIKE '%The';
 
 
 SELECT continent, SUM(population), year
